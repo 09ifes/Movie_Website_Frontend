@@ -1,11 +1,22 @@
+import NavbarLinks from "../navbar_components/NavbarLinks";
 
 export default Navbar;
 
-function Navbar(props){
+function Navbar(props) {
 
     return (
         <div className="navbar">
-            <h1 className="logo">Film4View</h1>
+            <div id='navbar-links'>
+                <NavbarLinks />
+            </div>
+
+            <div id='navbar-search'>
+                <form id="navbar-form" >
+                    <input id='navbar-input' type="text" />
+                        <button id='navbar-search-button' type="submit">Search</button>
+                </form>
+            </div>
+
 
 
         </div>
