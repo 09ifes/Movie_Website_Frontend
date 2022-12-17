@@ -136,3 +136,10 @@ a i.footer-icon {
 .footer-icon:hover {
   color: #464747;
 }
+#film-details-video {
+  display: block;
+  position: relative;
+  width: 90%;
+  height: 500px;
+  margin: 40px auto;
+}
