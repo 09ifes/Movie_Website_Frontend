@@ -101,6 +101,8 @@ body {
 
 .homepage-film-title {
   color: #e8e8e4;
+  font-weight: 500;
+  font-size: 0.9rem;
 }
 
 .homepage-film-category {

@@ -1,20 +1,17 @@
 import HomepageFilmDetails from "./HomepageFilmDetails"
 
 export default function ListOfFilms(props) {
+    let components = [];
+    if (props)
+    for (var i = 0; i < props.films.length; i++) {
+        components.push(<HomepageFilmDetails data={props.films[i]}/>);
+      }
+
     return (
         <div>
             <h1 class='list-of-films-title'>{props.name}</h1>
             <div class='list-of-films'>
-                <HomepageFilmDetails/>
-                <HomepageFilmDetails/>
-                <HomepageFilmDetails/>
-                <HomepageFilmDetails/>
-                <HomepageFilmDetails/>
-                <HomepageFilmDetails/>
-                <HomepageFilmDetails/>
-                <HomepageFilmDetails/>
-                <HomepageFilmDetails/>
-                <HomepageFilmDetails/>
+                {components}
                 
             </div>
             <a className="navbar-links view-more-button" href='#'>View More</a>
