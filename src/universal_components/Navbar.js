@@ -1,21 +1,18 @@
 import NavbarLinks from "../navbar_components/NavbarLinks";
-
+import NavbarSearch from "../navbar_components/NavbarSearch";
 export default Navbar;
 
 function Navbar(props) {
 
     return (
         <div className="navbar">
-            <div id='navbar-links'>
+            <div>
                 <NavbarLinks />
             </div>
-
-            <div id='navbar-search'>
-                <form id="navbar-form" >
-                    <input id='navbar-input' type="text" />
-                        <button id='navbar-search-button' type="submit">Search</button>
-                </form>
+            <div>
+                <NavbarSearch />
             </div>
+
 
 
 

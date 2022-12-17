@@ -2,7 +2,7 @@
 
 export default function NavbarLinks(props) {
     return (
-        <div>
+        <div id='navbar-links'>
             <h1 className="logo">Film4View</h1>
             <ul id="navbar-ul">
                 <li>
