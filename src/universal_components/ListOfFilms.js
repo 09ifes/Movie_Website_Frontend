@@ -17,6 +17,7 @@ export default function ListOfFilms(props) {
                 <HomepageFilmDetails/>
                 
             </div>
+            <a className="navbar-links view-more-button" href='#'>View More</a>
         </div>
 
     )

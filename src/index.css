@@ -2,6 +2,7 @@ body {
   width: 100%;
   margin: 0;
   background-color: #262626;
+  overflow-x: hidden;
 }
 
 #navbar {
@@ -112,4 +113,24 @@ body {
   width: 50%;
   color: #a8a8a3;
   display: inline-block;
+}
+
+.view-more-button {
+  left: 85%;
+  color: #6fbdcc;
+}
+
+.footer {
+  text-align:center;
+}
+.footer-icon {
+  padding: 10px;
+  font-size: 40px;
+  margin-top: 30px;
+}
+a i.footer-icon {
+  color: black;
+}
+.footer-icon:hover {
+  color: #464747;
 }
