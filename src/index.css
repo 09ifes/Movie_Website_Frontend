@@ -123,23 +123,52 @@ body {
 }
 
 .footer {
-  text-align:center;
+  text-align: center;
 }
+
 .footer-icon {
   padding: 10px;
   font-size: 40px;
   margin-top: 30px;
 }
+
 a i.footer-icon {
   color: black;
 }
+
 .footer-icon:hover {
   color: #464747;
 }
-#film-details-video {
+
+#view-film {
+  color: #8c8c8c;
+}
+
+#view-film-video,
+#view-film-details {
   display: block;
   position: relative;
   width: 90%;
   height: 500px;
-  margin: 40px auto;
+  margin: 100px auto;
+}
+
+.view-film-image {
+  display: inline-block;
+  width: 300px;
+  height: 350px
+}
+
+#view-film-information {
+  display: inline-block;
+  width: 60%;
+  position: absolute;
+  margin-left: 60px;
+}
+
+.film-details-title {
+  color: #e8e8e4;
+  font-weight: 500;
+  font-size: 2.5rem;
+
 }

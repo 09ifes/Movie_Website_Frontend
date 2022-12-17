@@ -2,7 +2,6 @@ import HomepageFilmDetails from "./HomepageFilmDetails"
 
 export default function ListOfFilms(props) {
     let components = [];
-    if (props)
     for (var i = 0; i < props.films.length; i++) {
         components.push(<HomepageFilmDetails data={props.films[i]}/>);
       }
