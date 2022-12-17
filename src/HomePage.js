@@ -31,9 +31,6 @@ export default function HomePage(props) {
                 <div id='homepage-most-recent'>
                     <ListOfFilms name='Most Recent' films={mostRecent_20} />
                 </div>
-                <div>
-                    <Footer/>
-                </div>
     
     
             </div>

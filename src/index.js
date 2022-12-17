@@ -14,7 +14,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path="view_film" element={<ViewFilm />} />
+          <Route path="view-film/:id" element={<ViewFilm />} />
         </Route>
       </Routes>
     </BrowserRouter>

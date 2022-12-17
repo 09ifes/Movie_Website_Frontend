@@ -3,10 +3,10 @@
 export default function NavbarLinks(props) {
     return (
         <div id='navbar-links'>
-            <h1 className="logo">Film4View</h1>
+            <a className="logo" href='/'>Film4View</a>
             <ul id="navbar-ul">
                 <li>
-                    <a className="navbar-links" href='#'>Home</a>
+                    <a className="navbar-links" href='/'>Home</a>
                 </li>
                 <li>
                     <a className="navbar-links" href='#'>Genre</a>

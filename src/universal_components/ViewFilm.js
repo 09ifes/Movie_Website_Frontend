@@ -1,31 +1,48 @@
 import ListOfFilms from "./ListOfFilms"
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+
 
 
 export default function ViewFilm(props) {
-    return (
-        <div id="view-film">
+    const { id } = useParams()
+    const [film, setFilm] = useState(1);
 
-            <iframe id="view-film-video"
-                src="https://www.youtube.com/embed/tgbNymZ7vqY">
-            </iframe>
-            <div id="view-film-details">
-                <img className="view-film-image" src="https://pyxis.nymag.com/v1/imgs/978/4d0/4b4779e1dcb86984abe55c08366f9babe7-13-empty-theater.rsquare.w700.jpg"></img>
-                <div id="view-film-information">
-                    <h1 class='film-details-title'>Film Title</h1>
-                    <h4>Rating: </h4>
-                    <p>Description Description Description Description Description Description Description Description Description  </p>
-                    <p>Genre:</p>
-                    <p>Actors:</p>
-                    <ul>
-                        <li>Actor 1</li>
-                    </ul>
+    if (film == 1) {
+        fetch("http://localhost:8080/view_film/" + id).then(response => response.json()).then((getFilm) => setFilm(getFilm));
+    }
+
+    // executes after data has been fully loaded into state array, to prevent undefined variables
+    if (film.length > 0) {
+        let view_film = film[0];
+        return (
+            <div id="view-film">
+                <iframe id="view-film-video" frameborder="0" type="text/html" src={view_film.video_url}
+                    allowfullscreen title="Dailymotion Video Player" > </iframe>
+                <div id="view-film-details">
+                    <img className="view-film-image" src={view_film.img_url}></img>
+                    <div id="view-film-information">
+                        <h1 class='film-details-title'>{view_film.title}</h1>
+                        <h4>Rating: {view_film.customer_rating}</h4>
+                        <p>{view_film.description}</p>
+                        <p>Genre: {view_film.name}</p>
+                        <p>Release year: {view_film.release_year}</p>
+                        <p>Actors:</p>
+                        <ul>
+                            <li>Actor 1</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div>
-            
-            </div>
+                <div>
 
-        </div>
-    )
+                </div>
+
+
+            </div>
+        )
+
+    }
+
+
 
 }
