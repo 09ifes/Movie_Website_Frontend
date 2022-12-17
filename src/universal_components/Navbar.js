@@ -5,7 +5,7 @@ export default Navbar;
 function Navbar(props) {
 
     return (
-        <div className="navbar">
+        <div id="navbar">
             <div>
                 <NavbarLinks />
             </div>

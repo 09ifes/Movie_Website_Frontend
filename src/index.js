@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Navbar from './universal_components/Navbar';
-
+import HomePage from './HomePage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
 
-root.render(<Navbar />);
+root.render(<HomePage />);
 
