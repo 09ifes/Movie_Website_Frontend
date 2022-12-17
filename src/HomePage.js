@@ -1,4 +1,3 @@
-import Navbar from "./universal_components/Navbar";
 import ListOfFilms from "./universal_components/ListOfFilms";
 import Footer from "./universal_components/Footer";
 import React, { useEffect, useState } from 'react';
@@ -23,9 +22,6 @@ export default function HomePage(props) {
 
         return (
             <div id='homepage'>
-                <div>
-                    <Navbar />
-                </div>
                 <div id='homepage-all-films'>
                     <ListOfFilms name='All Films' films={allFilms_20} />
                 </div>
