@@ -7,13 +7,23 @@ import { useParams } from 'react-router-dom';
 export default function ViewFilm(props) {
     const { id } = useParams()
     const [film, setFilm] = useState(1);
+    const [actors, setActors] = useState(1);
 
     if (film == 1) {
         fetch("http://localhost:8080/view_film/" + id).then(response => response.json()).then((getFilm) => setFilm(getFilm));
+        fetch("http://localhost:8080/view_film/" + id + "/all_actors").then(response => response.json()).then((getActors) => setActors(getActors));
+        
     }
 
     // executes after data has been fully loaded into state array, to prevent undefined variables
-    if (film.length > 0) {
+    if (film.length > 0 && actors.length > 0) {
+        let actorsList = [];
+    for (var i = 0; i < actors.length; i++) {
+        let first_name = actors[i].first_name;
+        let last_name = actors[i].last_name;
+        actorsList.push(<li>{ first_name + " " + last_name}</li> );
+      }
+
         let view_film = film[0];
         return (
             <div id="view-film">
@@ -29,7 +39,7 @@ export default function ViewFilm(props) {
                         <p>Release year: {view_film.release_year}</p>
                         <p>Actors:</p>
                         <ul>
-                            <li>Actor 1</li>
+                            {actorsList}
                         </ul>
                     </div>
                 </div>
