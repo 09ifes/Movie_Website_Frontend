@@ -123,10 +123,6 @@ body {
   color: #6fbdcc;
 }
 
-.hide-button {
-  display: none;
-}
-
 .footer {
   text-align: center;
 }
@@ -177,4 +173,19 @@ a i.footer-icon {
   color: #e8e8e4;
   font-weight: 500;
   font-size: 2.5rem;
+}
+
+.page-buttons {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+}
+
+#page-buttons-div {
+  width: 90px;
+  margin: 0 auto;
+}
+
+.hide-button {
+  display: none;
 }

@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Link, useNavigate } from "react-router-dom";
 
 export default function HomepageFilmDetails(props) {
-    const navigate = useNavigate();
+
 
     return (
         <a href={'/view-film/' + props.data.film_id}>
