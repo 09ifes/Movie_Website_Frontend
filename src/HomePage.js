@@ -1,5 +1,4 @@
 import ListOfFilms from "./universal_components/ListOfFilms";
-import Footer from "./universal_components/Footer";
 import React, { useEffect, useState } from 'react';
 
 export default function HomePage(props) {
@@ -23,13 +22,13 @@ export default function HomePage(props) {
         return (
             <div id='homepage'>
                 <div id='homepage-all-films'>
-                    <ListOfFilms name='All Films' films={allFilms_20} />
+                    <ListOfFilms name='All Films' films={allFilms_20} class="view-more-button" />
                 </div>
                 <div id='homepage-most-popular'>
-                    <ListOfFilms name='Most Popular' films={mostPopular_20} />
+                    <ListOfFilms name='Most Popular' films={mostPopular_20} class="view-more-button" />
                 </div>
                 <div id='homepage-most-recent'>
-                    <ListOfFilms name='Most Recent' films={mostRecent_20} />
+                    <ListOfFilms name='Most Recent' films={mostRecent_20} class="view-more-button" />
                 </div>
     
     

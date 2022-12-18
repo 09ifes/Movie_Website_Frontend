@@ -1,13 +1,13 @@
-import ListOfFilms from "./ListOfFilms"
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import HomepageFilmDetails from "./HomepageFilmDetails";
+import HomepageFilmDetails from "./universal_components/HomepageFilmDetails";
 
 
 
 export default function ViewFilm(props) {
     const { id } = useParams();
 
+    // state variables to store the results of the api calls
     const [film, setFilm] = useState(1);
     const [actors, setActors] = useState(1);
     const [similarFilms, setSimilarFilms] = useState(1);

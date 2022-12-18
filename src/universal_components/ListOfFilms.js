@@ -13,7 +13,7 @@ export default function ListOfFilms(props) {
                 {components}
                 
             </div>
-            <a className="navbar-links view-more-button" href='#'>View More</a>
+            <a className={"navbar-links " + props.class} href='#'>View More</a>
         </div>
 
     )
