@@ -186,6 +186,27 @@ a i.footer-icon {
   margin: 0 auto;
 }
 
+.back-button-div {
+  right: 660px;
+  left: 590px;
+  position: absolute;
+}
+.center-button-div {
+  position: absolute;
+  left: 620px;
+  right: 0px;
+}
+
+.forward-button-div {
+  left: 650px;
+  position: absolute;
+  right: 600px;
+}
+
+.show-button {
+  display: inline-block;
+}
+
 .hide-button {
   display: none;
 }

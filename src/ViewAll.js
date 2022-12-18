@@ -9,6 +9,8 @@ export default function ViewAll(props) {
     const { filter } = useParams();
     let url = "http://localhost:8080/all_films";
     let name = "All Films";
+    let showButton1 = "show-button";
+    let showButton2 = "show-button";
 
 
     if (filter == "most-popular") {
@@ -25,14 +27,18 @@ export default function ViewAll(props) {
         name = "Search Results"
     }
 
+    if (page == totalPages) {
+        showButton2 = "hide-button"
+    }
+    else if (page == 1) {
+        showButton1 = "hide-button"
+    }
+
 
     function setStates(get_films) {
         setFilms(get_films);
-        console.log(url);
-        //console.log(url_param);
         let number_of_films = get_films.length;
         setTotalPages(Math.ceil(number_of_films / 40));
-
     }
 
     if (films == 1) {
@@ -52,11 +58,13 @@ export default function ViewAll(props) {
 
                 <div id='page-buttons-div'>
                     <div class='page-buttons back-button-div'>
-                        <button class='page-buttons back-button'>{'<<'}</button>
+                        <button class={'page-buttons back-button ' + showButton1} onClick={() => setPage(page - 1)}>{'<<'}</button>
                     </div>
-                    <button class='page-buttons'>{page}</button>
+                    <div class='page-buttons center-button-div'>
+                        <button class='page-buttons'>{page}</button>
+                    </div>
                     <div class='page-buttons forward-button-div'>
-                        <button class='page-buttons forward-button'>{'>>'}</button>
+                        <button class={'page-buttons forward-button ' + showButton2} onClick={() => setPage(page + 1)}>{'>>'}</button>
                     </div>
 
 
