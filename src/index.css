@@ -150,8 +150,10 @@ a i.footer-icon {
   display: block;
   position: relative;
   width: 90%;
-  height: 500px;
   margin: 100px auto;
+}
+#view-film-video {
+  height: 500px;
 }
 
 .view-film-image {

@@ -1,28 +1,37 @@
 import ListOfFilms from "./ListOfFilms"
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import HomepageFilmDetails from "./HomepageFilmDetails";
 
 
 
 export default function ViewFilm(props) {
-    const { id } = useParams()
+    const { id } = useParams();
+
     const [film, setFilm] = useState(1);
     const [actors, setActors] = useState(1);
+    const [similarFilms, setSimilarFilms] = useState(1);
 
     if (film == 1) {
         fetch("http://localhost:8080/view_film/" + id).then(response => response.json()).then((getFilm) => setFilm(getFilm));
         fetch("http://localhost:8080/view_film/" + id + "/all_actors").then(response => response.json()).then((getActors) => setActors(getActors));
-        
+        fetch("http://localhost:8080/view_film/" + id + "/similar_films").then(response => response.json()).then((getFilms) => setSimilarFilms(getFilms));
+
     }
 
     // executes after data has been fully loaded into state array, to prevent undefined variables
-    if (film.length > 0 && actors.length > 0) {
+    if (film.length > 0 && actors.length > 0 && setSimilarFilms.length > 0) {
+        let similarFilmslist = [];
+        for (var i = 0; i < similarFilms.length; i++) {
+            similarFilmslist.push(<HomepageFilmDetails data={similarFilms[i]} />);
+        }
+
         let actorsList = [];
-    for (var i = 0; i < actors.length; i++) {
-        let first_name = actors[i].first_name;
-        let last_name = actors[i].last_name;
-        actorsList.push(<li>{ first_name + " " + last_name}</li> );
-      }
+        for (var i = 0; i < actors.length; i++) {
+            let first_name = actors[i].first_name;
+            let last_name = actors[i].last_name;
+            actorsList.push(<li>{first_name + " " + last_name}</li>);
+        }
 
         let view_film = film[0];
         return (
@@ -44,6 +53,10 @@ export default function ViewFilm(props) {
                     </div>
                 </div>
                 <div>
+                    <h1 class='list-of-films-title'>Similar Films</h1>
+                    <div class='list-of-films'>
+                        {similarFilmslist}
+                    </div>
 
                 </div>
 
