@@ -1,6 +1,6 @@
 
 
-export default function GenreButtons() {
+export default function GenreButtons(props) {
 
     let genreButtonsDiv = [];
     let genreDiv = ["Action", "Animation", "Children", "Classics", "Comedy", "Documentary",
@@ -23,7 +23,7 @@ export default function GenreButtons() {
                         {genreButtonsDiv}
                     </div>
                 </form>
-                <input id='genre-submit' type="button" name="submit" value="Filter" onclick="submitData()" />
+                <input id='genre-submit' type="button" name="submit" value="Filter" onClick={props.onClick} />
             </div>
         </div>
     )

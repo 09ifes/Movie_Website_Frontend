@@ -7,15 +7,43 @@ export default function ViewAll(props) {
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
     const [films, setFilms] = useState(1);
+    const [apiData, setApiData] = useState(1);
+    const [search, setSearch] = useState(1);
     const { filter } = useParams();
     const location = useLocation();
-    const [search, setSearch] = useState(1);
+    
 
     let url = "http://localhost:8080/all_films";
     let name = "All Films";
     let showButton1 = "show-button";
     let showButton2 = "show-button";
 
+
+    function filterResults() {
+        let genreDiv = ["Action", "Animation", "Children", "Classics", "Comedy", "Documentary",
+            "Drama", "Family", "Foreign", "Games", "Horror", "Music", "New", "Sci-Fi", "Sports", "Travel"]
+
+        let category = 'Action';
+        let filteredResults = []
+
+        for (let i = 0; i < genreDiv.length; i++) {
+            let radioButton = document.getElementById(genreDiv[i]).checked
+            if (radioButton) {
+                category = genreDiv[i]
+            }  
+        }
+        console.log(category)
+
+        for (let i = 0; i < apiData.length; i++) {
+            if (apiData[i].name == category){
+                filteredResults.push(apiData[i])
+            }
+        }      
+        setFilms(filteredResults)
+        let number_of_films = filteredResults.length;
+        setTotalPages(Math.ceil(number_of_films / 40))
+        setPage(1);     // goes to page 1 of filtered results
+    }
 
     if (filter == "most-popular") {
         url = "http://localhost:8080/most_popular";
@@ -42,6 +70,7 @@ export default function ViewAll(props) {
 
     function setStates(get_films) {
         setFilms(get_films);
+        setApiData(get_films);
         let number_of_films = get_films.length;
         setTotalPages(Math.ceil(number_of_films / 40));
     }
@@ -76,14 +105,11 @@ export default function ViewAll(props) {
         let films_40 = films.slice(array_start, (array_end + 1));
 
 
-        
-
-
         return (
             <div>
                 <div>
-                    
-                    <GenreButtons/>
+
+                    <GenreButtons onClick={() => filterResults()} />
 
                 </div>
                 <div>
