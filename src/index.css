@@ -210,3 +210,30 @@ a i.footer-icon {
 .hide-button {
   display: none;
 }
+
+.genre-radio-main-div {
+  width: 90%;
+  margin: 40px auto 0;
+}
+
+.genre-radio-divs {
+  display: inline-block;
+  width: 25%;
+}
+.genre-labels {
+  margin-left: 5px;
+  color:  #c1bfbf ;
+}
+
+h2.list-of-films-title {
+  text-align: center;
+}
+
+.genre-radio-buttons {
+  margin-left: 80px;
+}
+
+#genre-submit {
+  margin: 0 auto;
+  display: block;
+}

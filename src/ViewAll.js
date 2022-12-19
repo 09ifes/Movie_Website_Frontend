@@ -1,4 +1,5 @@
 import ListOfFilms from "./universal_components/ListOfFilms"
+import GenreButtons from "./universal_components/GenreButtons";
 import React, { useEffect, useState } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 
@@ -7,8 +8,8 @@ export default function ViewAll(props) {
     const [totalPages, setTotalPages] = useState(1);
     const [films, setFilms] = useState(1);
     const { filter } = useParams();
-    const location  = useLocation();
-    const [ search, setSearch] = useState(1);
+    const location = useLocation();
+    const [search, setSearch] = useState(1);
 
     let url = "http://localhost:8080/all_films";
     let name = "All Films";
@@ -25,10 +26,10 @@ export default function ViewAll(props) {
         url = "http://localhost:8080/most_recent";
         name = "Most Recent";
     }
-    else if (filter == "search-films"){
+    else if (filter == "search-films") {
         name = "Search Results";
     }
-    
+
 
     // if on first or last page, hides the arrow buttons accordingly
     if (page == totalPages) {
@@ -47,8 +48,8 @@ export default function ViewAll(props) {
 
     if (films == 1) {
         if (filter == "search-films") {
-            
-            let input = '\'{\"title\": \"' + location.state  + '"}\'';
+
+            let input = '\'{\"title\": \"' + location.state + '"}\'';
             const data = JSON.stringify(input);
             console.log(location.state)
             console.log(input)
@@ -61,7 +62,7 @@ export default function ViewAll(props) {
                 },
 
             }).then(response => response.json()).then((get_films) => setStates(get_films))
-            
+
         }
         else {
             fetch(url).then(response => response.json()).then((get_films) => setStates(get_films));
@@ -74,8 +75,17 @@ export default function ViewAll(props) {
         let array_start = array_end - 39;
         let films_40 = films.slice(array_start, (array_end + 1));
 
+
+        
+
+
         return (
             <div>
+                <div>
+                    
+                    <GenreButtons/>
+
+                </div>
                 <div>
                     <ListOfFilms name={name} films={films_40} class="hide-button" />
                 </div>
