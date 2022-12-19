@@ -1,5 +1,10 @@
 
 export default function NavbarSearch(props) {
+function search(){
+
+    
+}
+
     return (
         <div id='navbar-search'>
             <form id="navbar-form" >

@@ -7,6 +7,7 @@ export default function ViewAll(props) {
     const [totalPages, setTotalPages] = useState(1);
     const [films, setFilms] = useState(1);
     const { filter } = useParams();
+
     let url = "http://localhost:8080/all_films";
     let name = "All Films";
     let showButton1 = "show-button";
@@ -22,27 +23,45 @@ export default function ViewAll(props) {
         url = "http://localhost:8080/most_recent";
         name = "Most Recent";
     }
-    else if (filter == "search-films") {
-        url = "http://localhost:8080/search_films"
-        name = "Search Results"
+    else if (filter == "search-films"){
+        name = "Search Results";
     }
+    
 
+    // if on first or last page, hides the arrow buttons accordingly
     if (page == totalPages) {
         showButton2 = "hide-button"
     }
-    else if (page == 1) {
+    if (page == 1) {
         showButton1 = "hide-button"
     }
 
 
     function setStates(get_films) {
         setFilms(get_films);
+        console.log(get_films);
         let number_of_films = get_films.length;
         setTotalPages(Math.ceil(number_of_films / 40));
     }
 
     if (films == 1) {
-        fetch(url).then(response => response.json()).then((get_films) => setStates(get_films));
+        if (filter == "search-films") {
+            const data = JSON.stringify('{"title": "ba"}');
+            fetch('http://localhost:8080/search_films', {
+                method: 'post',
+                body: data,
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+
+            }).then(response => response.json()).then((get_films) => setStates(get_films))
+            
+        }
+        else {
+            fetch(url).then(response => response.json()).then((get_films) => setStates(get_films));
+        }
+
     }
 
     if (films.length > 0) {
