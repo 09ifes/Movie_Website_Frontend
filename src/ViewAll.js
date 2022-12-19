@@ -1,12 +1,14 @@
 import ListOfFilms from "./universal_components/ListOfFilms"
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 
 export default function ViewAll(props) {
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
     const [films, setFilms] = useState(1);
     const { filter } = useParams();
+    const location  = useLocation();
+    const [ search, setSearch] = useState(1);
 
     let url = "http://localhost:8080/all_films";
     let name = "All Films";
@@ -39,14 +41,17 @@ export default function ViewAll(props) {
 
     function setStates(get_films) {
         setFilms(get_films);
-        console.log(get_films);
         let number_of_films = get_films.length;
         setTotalPages(Math.ceil(number_of_films / 40));
     }
 
     if (films == 1) {
         if (filter == "search-films") {
-            const data = JSON.stringify('{"title": "ba"}');
+            
+            let input = '\'{\"title\": \"' + location.state  + '"}\'';
+            const data = JSON.stringify(input);
+            console.log(location.state)
+            console.log(input)
             fetch('http://localhost:8080/search_films', {
                 method: 'post',
                 body: data,

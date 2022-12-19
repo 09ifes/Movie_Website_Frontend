@@ -18,9 +18,12 @@ export default function ViewFilm(props) {
         fetch("http://localhost:8080/view_film/" + id + "/similar_films").then(response => response.json()).then((getFilms) => setSimilarFilms(getFilms));
 
     }
+    console.log(film)
+
 
     // executes after data has been fully loaded into state array, to prevent undefined variables
     if (film.length > 0 && actors.length > 0 && setSimilarFilms.length > 0) {
+        
         let similarFilmslist = [];
         for (var i = 0; i < similarFilms.length; i++) {
             similarFilmslist.push(<HomepageFilmDetails data={similarFilms[i]} />);
