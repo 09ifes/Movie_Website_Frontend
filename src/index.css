@@ -237,3 +237,35 @@ h2.list-of-films-title {
   margin: 0 auto;
   display: block;
 }
+
+.film-textarea-input {
+  text-align: center;
+  height: 100px;
+  width: 400px; 
+  display: block;
+  margin: 40px auto 60px;
+}
+
+.film-input {
+  text-align: center;
+  height: 30px;
+  width: 400px; 
+  display: block;
+  margin: 40px auto 60px;
+}
+
+#film-title-form, #film-description-form, #film-img-form, #film-vid-form {
+  width: 100%;
+  height: 100%;
+}
+
+.form-label {
+  color: #e8e8e4;
+}
+
+.form-search-button {
+  height: 36px;
+  padding: 0 20px;
+  display: block;
+  margin: 0 auto;
+}

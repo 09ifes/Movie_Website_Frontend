@@ -6,6 +6,7 @@ import HomePage from './HomePage';
 import ViewFilm from './ViewFilm';
 import Layout from './layout';
 import ViewAll from './ViewAll';
+import AddEditFilm from './AddEditFilm';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -17,6 +18,8 @@ export default function App() {
           <Route index element={<HomePage />} />
           <Route path="view-film/:id" element={<ViewFilm />} />
           <Route path="view-all/:filter" element={<ViewAll />} />
+          <Route path="add-film" element={<AddEditFilm />} />
+          <Route path="add-film/:name/:id" element={<AddEditFilm />} /> 
         </Route>
       </Routes>
     </BrowserRouter>

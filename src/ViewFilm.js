@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import HomepageFilmDetails from "./universal_components/HomepageFilmDetails";
+import PartialFilmDetails from './universal_components/PartialFilmDetails';
 
 
 
@@ -23,10 +23,10 @@ export default function ViewFilm(props) {
 
     // executes after data has been fully loaded into state array, to prevent undefined variables
     if (film.length > 0 && actors.length > 0 && setSimilarFilms.length > 0) {
-        
+
         let similarFilmslist = [];
         for (var i = 0; i < similarFilms.length; i++) {
-            similarFilmslist.push(<HomepageFilmDetails data={similarFilms[i]} />);
+            similarFilmslist.push(<PartialFilmDetails data={similarFilms[i]} />);
         }
 
         let actorsList = [];

@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Link, useNavigate } from "react-router-dom";
 
-export default function HomepageFilmDetails(props) {
+export default function PartialFilmDetails(props) {
 
 
     return (

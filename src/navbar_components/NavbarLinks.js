@@ -12,7 +12,7 @@ export default function NavbarLinks(props) {
                     <a className="navbar-links" href='#'>Genre</a>
                 </li>
                 <li>
-                    <a className="navbar-links" href='#'>All Films</a>
+                    <a className="navbar-links" href='/view-all/all-films'>All Films</a>
                 </li>
                 <li>
                     <a className="navbar-links" href='#'>Login</a>

@@ -1,9 +1,9 @@
-import HomepageFilmDetails from "./HomepageFilmDetails"
+import PartialFilmDetails from "./PartialFilmDetails"
 
 export default function ListOfFilms(props) {
     let components = [];
     for (var i = 0; i < props.films.length; i++) {
-        components.push(<HomepageFilmDetails data={props.films[i]}/>);
+        components.push(<PartialFilmDetails data={props.films[i]}/>);
       }
 
     return (
