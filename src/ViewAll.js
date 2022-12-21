@@ -71,6 +71,7 @@ export default function ViewAll(props) {
     function setStates(get_films) {
         setFilms(get_films);
         setApiData(get_films);
+        console.log(get_films)
         let number_of_films = get_films.length;
         setTotalPages(Math.ceil(number_of_films / 40));
     }
@@ -78,10 +79,8 @@ export default function ViewAll(props) {
     if (films == 1) {
         if (filter == "search-films") {
 
-            let input = '\'{\"title\": \"' + location.state + '"}\'';
+            let input = '{\"title\": \"' + location.state + '"}';
             const data = JSON.stringify(input);
-            console.log(location.state)
-            console.log(input)
             fetch('http://localhost:8080/search_films', {
                 method: 'post',
                 body: data,
@@ -108,14 +107,11 @@ export default function ViewAll(props) {
         return (
             <div>
                 <div>
-
                     <GenreButtons onClick={() => filterResults()} />
-
                 </div>
                 <div>
                     <ListOfFilms name={name} films={films_40} class="hide-button" />
                 </div>
-
                 <div id='page-buttons-div'>
                     <div class='page-buttons back-button-div'>
                         <button class={'page-buttons back-button ' + showButton1} onClick={() => setPage(page - 1)}>{'<<'}</button>
@@ -126,16 +122,20 @@ export default function ViewAll(props) {
                     <div class='page-buttons forward-button-div'>
                         <button class={'page-buttons forward-button ' + showButton2} onClick={() => setPage(page + 1)}>{'>>'}</button>
                     </div>
-
-
-
                 </div>
             </div>
-
-
-
         )
-
-
+    }
+    else {
+        return (
+            <div>
+                <div>
+                    <GenreButtons onClick={() => filterResults()} />
+                </div>
+                <div>
+                    <h1 class='list-of-films-title'>No Results</h1>
+                </div>
+            </div>
+        )
     }
 }
