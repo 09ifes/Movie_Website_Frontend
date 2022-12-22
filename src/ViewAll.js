@@ -13,7 +13,8 @@ export default function ViewAll(props) {
     const location = useLocation();
     
 
-    let url = "http://localhost:8080/all_films";
+    let awsURL = "http://ec2-34-194-100-30.compute-1.amazonaws.com:8080"
+    let url = awsURL + "/all_films";
     let name = "All Films";
     let showButton1 = "show-button";
     let showButton2 = "show-button";
@@ -55,12 +56,12 @@ export default function ViewAll(props) {
 
 
     if (filter == "most-popular") {
-        url = "http://localhost:8080/most_popular";
+        url = awsURL + "/most_popular";
         name = "Most Popular";
 
     }
     else if (filter == "most-recent") {
-        url = "http://localhost:8080/most_recent";
+        url = awsURL + "/most_recent";
         name = "Most Recent";
     }
     else if (filter == "search-films") {
@@ -84,7 +85,7 @@ export default function ViewAll(props) {
 
             let input = '{\"title\": \"' + location.state + '"}';
             const data = JSON.stringify(input);
-            fetch('http://localhost:8080/search_films', {
+            fetch(awsURL + '/search_films', {
                 method: 'post',
                 body: data,
                 headers: {

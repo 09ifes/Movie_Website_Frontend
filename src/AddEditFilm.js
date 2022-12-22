@@ -6,6 +6,7 @@ export default function AddEditFilm(props) {
     const { name, id } = useParams();
     const navigate = useNavigate();
     let title = "Add Film"  // default
+    let awsURL = "http://ec2-34-194-100-30.compute-1.amazonaws.com:8080"
 
     if (name == "edit") {
         title = "Edit Film"
@@ -27,7 +28,7 @@ export default function AddEditFilm(props) {
         console.log(input)
 
         if (name == "edit") {
-            fetch('http://localhost:8080/edit_film/' + id, {
+            fetch(awsURL + '/edit_film/' + id, {
                 method: 'put',
                 body: data,
                 headers: {
@@ -43,7 +44,7 @@ export default function AddEditFilm(props) {
         }
 
         else {
-            fetch('http://localhost:8080/add_film', {
+            fetch(awsURL +'/add_film', {
                 method: 'post',
                 body: data,
                 headers: {

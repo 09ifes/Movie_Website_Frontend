@@ -7,15 +7,17 @@ import PartialFilmDetails from './universal_components/PartialFilmDetails';
 export default function ViewFilm(props) {
     const { id } = useParams();
 
+
     // state variables to store the results of the api calls
     const [film, setFilm] = useState(1);
     const [actors, setActors] = useState(1);
     const [similarFilms, setSimilarFilms] = useState(1);
+    let awsURL = "http://ec2-34-194-100-30.compute-1.amazonaws.com:8080"
 
     if (film == 1) {
-        fetch("http://localhost:8080/view_film/" + id).then(response => response.json()).then((getFilm) => setFilm(getFilm));
-        fetch("http://localhost:8080/view_film/" + id + "/all_actors").then(response => response.json()).then((getActors) => setActors(getActors));
-        fetch("http://localhost:8080/view_film/" + id + "/similar_films").then(response => response.json()).then((getFilms) => setSimilarFilms(getFilms));
+        fetch(awsURL + "/view_film/" + id).then(response => response.json()).then((getFilm) => setFilm(getFilm));
+        fetch(awsURL + "/view_film/" + id + "/all_actors").then(response => response.json()).then((getActors) => setActors(getActors));
+        fetch(awsURL + "/view_film/" + id + "/similar_films").then(response => response.json()).then((getFilms) => setSimilarFilms(getFilms));
 
     }
     console.log(film)
