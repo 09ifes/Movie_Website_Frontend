@@ -53,6 +53,7 @@ export default function ViewFilm(props) {
                         <ul>
                             {actorsList}
                         </ul>
+                        <a href={'/film/edit/' + view_film.film_id }>Edit Film</a>
                     </div>
                 </div>
                 <div>

@@ -18,8 +18,8 @@ export default function App() {
           <Route index element={<HomePage />} />
           <Route path="view-film/:id" element={<ViewFilm />} />
           <Route path="view-all/:filter" element={<ViewAll />} />
-          <Route path="add-film" element={<AddEditFilm />} />
-          <Route path="add-film/:name/:id" element={<AddEditFilm />} /> 
+          <Route path="film/add-film" element={<AddEditFilm />} />
+          <Route path="film/:name/:id" element={<AddEditFilm />} /> 
         </Route>
       </Routes>
     </BrowserRouter>

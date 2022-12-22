@@ -18,6 +18,13 @@ export default function ViewAll(props) {
     let showButton1 = "show-button";
     let showButton2 = "show-button";
 
+    function setStates(get_films) {
+        setFilms(get_films);
+        setApiData(get_films);
+        console.log(get_films)
+        let number_of_films = get_films.length;
+        setTotalPages(Math.ceil(number_of_films / 40));
+    }
 
     function filterResults() {
         let genreDiv = ["Action", "Animation", "Children", "Classics", "Comedy", "Documentary",
@@ -32,7 +39,7 @@ export default function ViewAll(props) {
                 category = genreDiv[i]
             }  
         }
-        console.log(category)
+        
 
         for (let i = 0; i < apiData.length; i++) {
             if (apiData[i].name == category){
@@ -43,7 +50,9 @@ export default function ViewAll(props) {
         let number_of_films = filteredResults.length;
         setTotalPages(Math.ceil(number_of_films / 40))
         setPage(1);     // goes to page 1 of filtered results
+        console.log(films)
     }
+
 
     if (filter == "most-popular") {
         url = "http://localhost:8080/most_popular";
@@ -68,13 +77,7 @@ export default function ViewAll(props) {
     }
 
 
-    function setStates(get_films) {
-        setFilms(get_films);
-        setApiData(get_films);
-        console.log(get_films)
-        let number_of_films = get_films.length;
-        setTotalPages(Math.ceil(number_of_films / 40));
-    }
+   
 
     if (films == 1) {
         if (filter == "search-films") {
@@ -99,6 +102,7 @@ export default function ViewAll(props) {
     }
 
     if (films.length > 0) {
+        console.log(films)
         let array_end = (40 * page) - 1;
         let array_start = array_end - 39;
         let films_40 = films.slice(array_start, (array_end + 1));
