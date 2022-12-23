@@ -23,13 +23,13 @@ export default function HomePage(props) {
         return (
             <div id='homepage'>
                 <div id='homepage-all-films'>
-                    <ListOfFilms name='All Films' films={allFilms_20} class="view-more-button" link="/view-all/all-films"/>
+                    <ListOfFilms cy='all-films-view-more' cy1='home-all-films-title' name='All Films' films={allFilms_20} class="view-more-button" link="/view-all/all-films"/>
                 </div>
                 <div id='homepage-most-popular'>
-                    <ListOfFilms name='Most Popular' films={mostPopular_20} class="view-more-button" link="/view-all/most-popular" />
+                    <ListOfFilms cy='most-popular-view-more' cy1='home-most-popular-title' name='Most Popular' films={mostPopular_20} class="view-more-button" link="/view-all/most-popular" />
                 </div>
                 <div id='homepage-most-recent'>
-                    <ListOfFilms name='Most Recent' films={mostRecent_20} class="view-more-button" link="/view-all/most-recent" />
+                    <ListOfFilms cy='most-recent-view-more' cy1='home-most-recent-title' name='Most Recent' films={mostRecent_20} class="view-more-button" link="/view-all/most-recent" />
                 </div>
     
     

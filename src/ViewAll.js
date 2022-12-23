@@ -22,7 +22,6 @@ export default function ViewAll(props) {
     function setStates(get_films) {
         setFilms(get_films);
         setApiData(get_films);
-        console.log(get_films)
         let number_of_films = get_films.length;
         setTotalPages(Math.ceil(number_of_films / 40));
     }
@@ -34,6 +33,7 @@ export default function ViewAll(props) {
         let category = 'Action';
         let filteredResults = []
 
+        // sets category based on what's selected
         for (let i = 0; i < genreDiv.length; i++) {
             let radioButton = document.getElementById(genreDiv[i]).checked
             if (radioButton) {

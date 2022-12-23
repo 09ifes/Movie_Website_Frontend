@@ -8,12 +8,12 @@ export default function ListOfFilms(props) {
 
     return (
         <div>
-            <h1 class='list-of-films-title'>{props.name}</h1>
+            <h1 data-cy={props.cy1} class='list-of-films-title'>{props.name}</h1>
             <div class='list-of-films'>
                 {components}
                 
             </div>
-            <a className={"navbar-links " + props.class} href={props.link}>View More</a>
+            <a data-cy={props.cy} className={"navbar-links " + props.class} href={props.link}>View More</a>
         </div>
 
     )
