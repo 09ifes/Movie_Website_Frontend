@@ -25,7 +25,7 @@ export default function AddEditFilm(props) {
             '\"vid_url\": \"' + vid_url + '"}';
         const data = JSON.stringify(input);
 
-        console.log(input)
+        console.log(data)
 
         if (name == "edit") {
             fetch(awsURL + '/edit_film/' + id, {
@@ -37,7 +37,7 @@ export default function AddEditFilm(props) {
                 },
 
             }).then(() =>  navigate('/view-film/' + id))
-           // window.location.reload(false);
+          
            
             
 

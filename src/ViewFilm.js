@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import PartialFilmDetails from './universal_components/PartialFilmDetails';
 
 
 
 export default function ViewFilm(props) {
     const { id } = useParams();
-
+    const navigate = useNavigate();
 
     // state variables to store the results of the api calls
     const [film, setFilm] = useState(1);
@@ -14,11 +14,18 @@ export default function ViewFilm(props) {
     const [similarFilms, setSimilarFilms] = useState(1);
     let awsURL = "http://ec2-34-194-100-30.compute-1.amazonaws.com:8080"
 
+function deleteFilm(){
+    fetch(awsURL + "/delete_film/" + id, {
+        method: 'DELETE'
+    }).then(() => navigate('/view-all/all-films'));
+
+}
+
     if (film == 1) {
         fetch(awsURL + "/view_film/" + id).then(response => response.json()).then((getFilm) => setFilm(getFilm));
         fetch(awsURL + "/view_film/" + id + "/all_actors").then(response => response.json()).then((getActors) => setActors(getActors));
         fetch(awsURL + "/view_film/" + id + "/similar_films").then(response => response.json()).then((getFilms) => setSimilarFilms(getFilms));
-
+      
     }
     console.log(film)
 
@@ -56,6 +63,7 @@ export default function ViewFilm(props) {
                             {actorsList}
                         </ul>
                         <a href={'/film/edit/' + view_film.film_id }>Edit Film</a>
+                         <br/><br/> <a href='/' onClick={() => deleteFilm()}>Delete Film</a>
                     </div>
                 </div>
                 <div>

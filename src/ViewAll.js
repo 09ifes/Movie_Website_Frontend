@@ -85,6 +85,7 @@ export default function ViewAll(props) {
 
             let input = '{\"title\": \"' + location.state + '"}';
             const data = JSON.stringify(input);
+            console.log(data)
             fetch(awsURL + '/search_films', {
                 method: 'post',
                 body: data,
@@ -99,6 +100,7 @@ export default function ViewAll(props) {
         else {
             fetch(url).then(response => response.json()).then((get_films) => setStates(get_films));
         }
+        
 
     }
 

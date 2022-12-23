@@ -32,4 +32,3 @@ export default function NavbarSearch(props) {
         </div>
     )
 }
-// usesearchparams
