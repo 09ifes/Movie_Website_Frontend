@@ -52,7 +52,7 @@ export default function AddEditFilm(props) {
                     'Content-Type': 'application/json',
                 },
 
-            })
+            }).then(() =>  navigate('/view-all/all-films'))
 
         }
 
