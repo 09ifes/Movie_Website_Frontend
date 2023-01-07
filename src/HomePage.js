@@ -5,13 +5,13 @@ export default function HomePage(props) {
     const [allFilms, setAllFilms] = useState(1);
     const [mostPopular, setMostPopular] = useState(1);
     const [mostRecent, setMostRecent] = useState(1);
-    let awsURL = "http://ec2-34-194-100-30.compute-1.amazonaws.com:8080"
+    let URL = "http://localhost:8080"
    
     
     if (allFilms == 1){
-        fetch(awsURL + "/all_films").then(response => response.json()).then((all_films) => setAllFilms(all_films));
-        fetch(awsURL + "/most_popular").then(response => response.json()).then((most_popular) => setMostPopular(most_popular));
-        fetch(awsURL + "/most_recent").then(response => response.json()).then((most_recent) => setMostRecent(most_recent));
+        fetch(URL + "/all_films").then(response => response.json()).then((all_films) => setAllFilms(all_films));
+        fetch(URL + "/most_popular").then(response => response.json()).then((most_popular) => setMostPopular(most_popular));
+        fetch(URL + "/most_recent").then(response => response.json()).then((most_recent) => setMostRecent(most_recent));
     }
     
     // executes after data has been fully loaded into state arrays, to prevent undefined variables

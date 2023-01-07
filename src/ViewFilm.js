@@ -12,7 +12,7 @@ export default function ViewFilm(props) {
     const [film, setFilm] = useState(1);
     const [actors, setActors] = useState(1);
     const [similarFilms, setSimilarFilms] = useState(1);
-    let awsURL = "http://ec2-34-194-100-30.compute-1.amazonaws.com:8080"
+    let URL = "http://localhost:8080"
 
 function deleteFilm(){
     fetch(awsURL + "/delete_film/" + id, {
@@ -22,9 +22,9 @@ function deleteFilm(){
 }
 
     if (film == 1) {
-        fetch(awsURL + "/view_film/" + id).then(response => response.json()).then((getFilm) => setFilm(getFilm));
-        fetch(awsURL + "/view_film/" + id + "/all_actors").then(response => response.json()).then((getActors) => setActors(getActors));
-        fetch(awsURL + "/view_film/" + id + "/similar_films").then(response => response.json()).then((getFilms) => setSimilarFilms(getFilms));
+        fetch(URL + "/view_film/" + id).then(response => response.json()).then((getFilm) => setFilm(getFilm));
+        fetch(URL + "/view_film/" + id + "/all_actors").then(response => response.json()).then((getActors) => setActors(getActors));
+        fetch(URL + "/view_film/" + id + "/similar_films").then(response => response.json()).then((getFilms) => setSimilarFilms(getFilms));
       
     }
     console.log(film)
