@@ -51,11 +51,6 @@ export default function AddEditFilm(props) {
             }).then(() =>  navigate('/view-all/all-films'))
 
         }
-
-        console.log(title)
-        console.log(description)
-        console.log(img_url)
-        console.log(vid_url)
     }
 
 

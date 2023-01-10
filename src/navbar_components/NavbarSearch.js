@@ -8,17 +8,12 @@ export default function NavbarSearch(props) {
 
     const search = () => {
 
-
         let input = document.getElementById("navbar-input").value
-
-        console.log(input)
-
-        //navigate('/')
         navigate('/view-all/search-films',
             {
                 state: input
             });
-        window.location.reload(false);
+        window.location.reload(false); //refresh page
     }
 
     return (

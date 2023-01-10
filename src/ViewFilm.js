@@ -15,29 +15,30 @@ export default function ViewFilm(props) {
     let URL = "http://localhost:8080"
 
 function deleteFilm(){
-    fetch(awsURL + "/delete_film/" + id, {
+    fetch(URL + "/delete_film/" + id, {
         method: 'DELETE'
     }).then(() => navigate('/view-all/all-films'));
 
 }
-
+    // only executes once 
     if (film == 1) {
         fetch(URL + "/view_film/" + id).then(response => response.json()).then((getFilm) => setFilm(getFilm));
         fetch(URL + "/view_film/" + id + "/all_actors").then(response => response.json()).then((getActors) => setActors(getActors));
         fetch(URL + "/view_film/" + id + "/similar_films").then(response => response.json()).then((getFilms) => setSimilarFilms(getFilms));
       
     }
-    console.log(film)
 
 
     // executes after data has been fully loaded into state array, to prevent undefined variables
     if (film.length > 0 && actors.length > 0 && setSimilarFilms.length > 0) {
 
+        // creates array of partialFilmDetails components, which would be displayed on screen
         let similarFilmslist = [];
         for (var i = 0; i < similarFilms.length; i++) {
             similarFilmslist.push(<PartialFilmDetails data={similarFilms[i]} />);
         }
 
+        // creates an array of list elements for displaying actors in a movie
         let actorsList = [];
         for (var i = 0; i < actors.length; i++) {
             let first_name = actors[i].first_name;
@@ -45,6 +46,7 @@ function deleteFilm(){
             actorsList.push(<li>{first_name + " " + last_name}</li>);
         }
 
+        // film details object
         let view_film = film[0];
         return (
             <div id="view-film">
